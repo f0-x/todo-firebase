@@ -7,10 +7,16 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { HomeComponent } from './components/home/home.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodoAddComponent } from './components/todo-add/todo-add.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    TodoListComponent,
+    TodoAddComponent,
   ],
   imports: [
     BrowserModule,
