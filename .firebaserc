@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "todo-firebase-45612": {
+      "hosting": {
+        "todo-firebase": [
+          "todo-firebase-45612"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "todo-firebase-45612"
+  }
+}
