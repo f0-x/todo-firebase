@@ -46,14 +46,16 @@ this check gets done */
                     (result) => {
                       let emailLower = user.email.toLowerCase();
 
-                      this.afStore.doc('/users' + emailLower)
+/*                       this.afs.doc('/users/' + emailLower)                        // on a successful signup, create a document in 'users' collection with the new user's info */
+/*                        ^ returned Invalid Document reference, Document references must have an even number of segments */
+                      this.afStore.doc(`/users/${emailLower}`)
                       .set(
                         {
                           accountType: 'endUser',
                           displayName: user.displayName,
                           displayName_lower: user.displayName.toLowerCase(),
                           email : user.email,
-                          email_lower: emailLower
+                          email_lower: emailLower,
                         }
                       )
                       result.user?.sendEmailVerification();

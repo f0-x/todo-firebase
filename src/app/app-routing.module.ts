@@ -15,10 +15,12 @@ const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'todoList', component: TodoListComponent},
   {path:'todoAdd', component: TodoAddComponent},
+  {path:'todoUpdate/:id', component: TodoAddComponent},
   {path:'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
   {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path:'forgot-password', component: ForgotPasswordComponent},
   {path:'signup', component: SignupComponent},
+  { path: 'login', component: LoginComponent },
   {path:'verify-email', component: VerifyEmailComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: HomeComponent}

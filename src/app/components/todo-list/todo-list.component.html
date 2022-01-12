@@ -1,1 +1,30 @@
-<p>todo-list works!</p>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">List of Todos</span> <br>
+            <button class="btn btn-dark " routerLink="/todoAdd">Add a Todo</button>
+            <h5 style="margin-top: 30px;" *ngIf="todos.length == 0">Make sure to fill accurate details!</h5>
+            <table *ngIf="todos.length > 0" class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Detail</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let todo of todos">
+                    <td>{{ todo.detail }}</td>
+                    <td>{{ todo.date }}</td>
+                    <td>{{ todo.status }}</td>
+                    <td>
+                        <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/todoUpdate/', todo.detail_short]"></i>
+                        <i (click)="removeTodo(todo.detail_short)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

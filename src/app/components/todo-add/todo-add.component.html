@@ -1,1 +1,38 @@
-<p>todo-add works!</p>
+Add a ToDo
+<br>
+<br>
+<button mat-raised-button color="primary" routerLink="/home">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+</button>
+
+<mat-card class="form-card">
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Detail</mat-label>
+                <input autocomplete="off" formControlName="detail" type="text" matInput placeholder="Todo Detail">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Detail in a Word</mat-label>
+                <input autocomplete="off" formControlName="short" type="text" matInput placeholder="Detail in a word">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input formControlName="date"  matInput placeholder="Date">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <input autocomplete="off" formControlName="status" type="text" matInput placeholder="Status">
+            </mat-form-field>
+        </p>
+
+        <button mat-raised-button color="primary">Add</button>
+    </form>
+</mat-card>
