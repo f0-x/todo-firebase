@@ -19,12 +19,16 @@
                     <td>{{ todo.date }}</td>
                     <td>{{ todo.status }}</td>
                     <td>
+                      <span id="clickableFA">
                         <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/todoUpdate/', todo.detail_short]"></i>
+                      </span>
                         &nbsp;
                         &nbsp;
                         &nbsp;
                         &nbsp;
+                      <span id="clickableFA">
                         <i (click)="removeTodo(todo.detail_short)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                      </span>
                     </td>
                   </tr>
                 </tbody>
