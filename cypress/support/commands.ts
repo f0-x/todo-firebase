@@ -5,7 +5,8 @@
 // ***********************************************
 declare namespace Cypress {
   interface Chainable<Subject = any> {
-    login(email: string, password: string): typeof login;
+    login(email: string, password: string): typeof login
+    addATodo(detail: string, short: string, date: string, status: string): typeof addATodo
   }
 }
 
@@ -18,8 +19,20 @@ function login(email: string, password: string): void {
     cy.url().should('not.include', 'dashboard');
 }
 
+function addATodo(detail: string, short: string, date: string, status: string){
+    cy.visit('/todoAdd');
+    cy.url().should('include', 'todoAdd');
+    cy.get('[formControlName= "detail"]').type("Sing a song");
+    cy.url().should('include', '/todoAdd');
+    cy.get('[formControlName= "short"]').type("Sing");
+    cy.get('[formControlName= "date"]').type("March 27"); cy.get('[formControlName= "status"]').type("In Progress...");
+    cy.get('[id="todo-add-button"]').click();
+    cy.url().should('not.include', '/todolist');
+}
+
 // NOTE: You can use it like so:
 Cypress.Commands.add('login', login);
+Cypress.Commands.add('addATodo', addATodo);
 
 // ***********************************************
 // This example commands.js shows you how to
