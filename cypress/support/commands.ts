@@ -14,8 +14,12 @@ function login(email: string, password: string): void {
     cy.visit('/login')
     cy.url().should('include', 'login');
     cy.get('[formControlName = "email"]').type(email);
+    // ASSERTS the email address gets updated in the DOM
+    cy.get('[formControlName = "email"]').should("have.value", email);
     cy.get('[formControlName = "password"]').type(password);
-    cy.get('[id= "login-button"]').click();
+    // ASSERTS the password updated in the DOM
+    cy.get('[formControlName = "password"]').should("have.value", password);
+    cy.get('[id= "login-button"]').should('not.be', 'disabled').click();
     cy.url().should('not.include', 'dashboard');
 }
 

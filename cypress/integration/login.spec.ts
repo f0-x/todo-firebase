@@ -1,4 +1,5 @@
 describe('Login', () => {
+
   it('should not login if the form is invalid', () => {
     cy.visit('/login')
     cy.url().should('include', 'login');
